@@ -1,0 +1,10 @@
+version: '3.4'
+
+services:
+  turniketwebapi:
+    image: ${DOCKER_REGISTRY-}turniketwebapi
+    build:
+      context: .
+      dockerfile: TurniketWebApi/Dockerfile
+  postgres:
+     image: postgres:13.3

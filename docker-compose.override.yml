@@ -1,0 +1,19 @@
+version: '3.4'
+
+services:
+  turniketwebapi:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://+:80
+    ports:
+      - "80"
+  postgres:
+    image: postgres:13.3
+    environment:
+      POSTGRES_DB: "TurniketDB"
+      POSTGRES_USER: "postgres"
+      POSTGRES_PASSWORD: "pgpgg466hhg"
+    volumes:
+      - .:/docker-entrypoint-initdb.d
+    ports:
+      - "5432:5432"
